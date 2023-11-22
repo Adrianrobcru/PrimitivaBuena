@@ -18,22 +18,11 @@ public  class Primitiva {
 		}
 		
 	}
-	public  void iniciar() {
-		int a;
-		Scanner sc = new Scanner (System.in);
-		System.out.println("---La Primitiva---");
-		System.out.println("   1. Jugar");
-		System.out.println("   2. Ver Historial");
-		System.out.println("   3. Salir");
-		a= sc.nextInt();
-		switch (a) {
-		case 1: {
-			Primitiva primitiva= new Primitiva();
-		}
-		case 2:{
-			
-		}
-		case 3:
-		}
+	public int[] getPrimitiva() {
+		return numPrimitiva;
 	}
+	public int getReintegro() {
+		return numReintegro;
+	}
+	
 }
