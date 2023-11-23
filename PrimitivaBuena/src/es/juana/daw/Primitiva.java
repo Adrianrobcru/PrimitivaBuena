@@ -40,9 +40,20 @@ public  class Primitiva {
 		
 	}
 	public int compararNumeros() {
-		Primitiva primitava= new Primitiva();
-		int[] comparacion=primitava.();
-		if(reintegro==primitava.getReintegro()) {
+		Combinacion combinacion= new Combinacion();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Introduce el Reintegro: " );
+		int reintegroLeer = sc.nextInt();
+		int [] primitivaLeer = new int[6];
+		for(int i= 0; i < 6; i++) {
+			System.out.println("Introduce el numero: " +i);
+			primitivaLeer[i] = sc.nextInt();
+			
+			}
+		Combinacion combinacion1 = new Combinacion();
+		
+		
+		if(reintegro==()) {
 			dinero=dinero+1;
 		}
 		for(int j=0;j<6;j++) {
