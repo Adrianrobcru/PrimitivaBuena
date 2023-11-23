@@ -16,7 +16,7 @@ public class Combinacion {
 	public  Combinacion(){
 		Random randomReintegro=new Random();
 		this.numReintegro= randomReintegro.nextInt(9);/*Genera un numero aleatorio de cero hasta el numero puesto en el parentesis*/
-		for(int i=0;i<6;i++) {/*Este for nos permite asignar a cada espacio de memoria un numero aleatorio*/
+		for(int i=0;i<this.numPrimitiva.length;i++) {/*Este for nos permite asignar a cada espacio de memoria un numero aleatorio*/
 			Random randomPrimitiva= new Random();
 			this.numPrimitiva[i]=randomPrimitiva.nextInt(19)+1;/*lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo*/
 		}
@@ -26,9 +26,23 @@ public class Combinacion {
 	public Combinacion(int reintegro, int[] primitiva) {
 		primitiva = new int[6];
 		this.numReintegro = reintegro;
-		for(int i = 0; i < 6; i++) {
+		for(int i = 0; i < primitiva.length; i++) {
 			this.numPrimitiva[i] = primitiva[i];
 		}
 	}
+	
+	public void compararNumeros() {
+		Combinacion combinacionPrimtiva = new Combinacion();
+		Scanner sc = new Scanner(System.in);
+		int reintegroLeer= sc.nextInt();
+		int [] primitivaLeer = new int[numPrimitiva.length];
+		for(int i = 0; i< this.numPrimitiva.length; i++) {
+			primitivaLeer[i]= sc.nextInt();
+			}
+		Combinacion combinacionLeer = new Combinacion();
+		
+		
+		
+		}
 	
 }
