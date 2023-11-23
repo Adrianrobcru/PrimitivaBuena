@@ -31,6 +31,39 @@ public class Combinacion {
 		}
 	}
 	
+	public void dineroGanado() {
+		int dineroGanado = 0;
+		if (compararNumeros()==1) {
+			dineroGanado=1000 + 1;
+		}
+
+		if (compararNumeros()==2) {
+			dineroGanado=10000 +1;
+		}
+
+		if (compararNumeros()==3) {
+			dineroGanado=1000000 + 1 ;
+		}
+		if (compararNumeros()==4) {
+			dineroGanado= 1 ;
+		}
+		if (compararNumeros()==5) {
+			dineroGanado=1000 ;
+		}
+
+		if (compararNumeros()==6) {
+			dineroGanado=10000 ;
+		}
+
+		if (compararNumeros()==7) {
+			dineroGanado=1000000 ;
+		}
+		if (compararNumeros()==8) {
+			dineroGanado= 0 ;
+		}
+		System.out.println("Has ganado " +dineroGanado+ "€");
+	}
+	
 	public int compararNumeros() {
 		Combinacion combinacionPrimtiva = new Combinacion();/*Se crea un objeto de tipo combinacion en este caso sera el numero premiado*/
 		Scanner sc = new Scanner(System.in);/*se llama al escaner*/
