@@ -31,15 +31,4 @@ public class Combinacion {
 		}
 	}
 	
-	
-	
-	
-	
-	
-	public int[] getCombinacion() {
-		return numPrimitiva;
-	}
-	public int getReintegro() {
-		return numReintegro;
-	}
 }
