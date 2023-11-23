@@ -24,7 +24,11 @@ public class Combinacion {
 	}
 	
 	public Combinacion(int reintegro, int[] primitiva) {
-		
+		primitiva = new int[6];
+		this.numReintegro = reintegro;
+		for(int i = 0; i < 6; i++) {
+			this.numPrimitiva[i] = primitiva[i];
+		}
 	}
 	
 	
