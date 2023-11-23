@@ -1,70 +1,41 @@
 package es.juana.daw;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Combinacion {
 	
-	private int[] numero = new int[6];
-	private int reintegro;
-	int acierto=0;
-	int dineroGando;
-	public void leerNumeros() {
-		Scanner sc = new Scanner(System.in);
-		reintegro = sc.nextInt();
-		for(int i =0;i<6;i++) {
-			numero[i]=sc.nextInt();
-		}		
-	}
-	public int compararNumeros() {
-		Primitiva primitava= new Primitiva();
-		int[] comparacion=primitava.getPrimitiva();
-		if(reintegro==primitava.getReintegro()) {
-			dineroGando=dineroGando+1;
+	/*inicializamos dos variables,numReintegro que es un int donde ira el numero reintegro y un array de tipo int que se guardara los numeros de a primitiva*/
+	int numReintegro;
+	int[] numPrimitiva= new int[6];
+	/*Este metodo nos permite generar numeros aleatorios y asignarlos en la variable numReintegro y en el array numPrimitiva*/
+	
+	
+	
+	
+	public  Combinacion(){
+		Random randomReintegro=new Random();
+		this.numReintegro= randomReintegro.nextInt(9);/*Genera un numero aleatorio de cero hasta el numero puesto en el parentesis*/
+		for(int i=0;i<6;i++) {/*Este for nos permite asignar a cada espacio de memoria un numero aleatorio*/
+			Random randomPrimitiva= new Random();
+			this.numPrimitiva[i]=randomPrimitiva.nextInt(19)+1;/*lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo*/
 		}
-		for(int j=0;j<6;j++) {
-			for(int t=0;t<6;t++) {
-				if(numero[j]==comparacion[t]) {
-					 acierto++;
-				}
-			}
 		
-		}
-		if(acierto==4) {
-			dineroGando=dineroGando+1000;
-			return dineroGando;
-		}
-		if(acierto==5) {
-			dineroGando=dineroGando+10000;
-			return dineroGando;
-		}
-		if(acierto==6) {
-			dineroGando=dineroGando+1000000;
-			return dineroGando;
-		}
-		if(acierto<4 && acierto>6) {
-			dineroGando=dineroGando+0;
-			return dineroGando;
-		}
-		return dineroGando;
 	}
-	public  void iniciar() {
-		int a;
-		Scanner sc = new Scanner (System.in);
-		System.out.println("---La Primitiva---");
-		System.out.println("   1. Jugar");
-		System.out.println("   2. Ver Historial");
-		System.out.println("   3. Salir");
-		a= sc.nextInt();
-		switch (a) {
-		case 1: {
-			leerNumeros();
-			compararNumeros();
-			
-		}
-		case 2:{
-			
-		}
-		case 3:
-		}
+	
+	public Combinacion(int reintegro, int[] primitiva) {
+		
+	}
+	
+	
+	
+	
+	
+	
+	public int[] getCombinacion() {
+		return numPrimitiva;
+	}
+	public int getReintegro() {
+		return numReintegro;
 	}
 }
