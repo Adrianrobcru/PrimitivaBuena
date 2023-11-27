@@ -8,6 +8,9 @@ public  class Primitiva {
 	/**
 	 * variables para el historial
 	 */
+	public Primitiva() {
+		// TODO Auto-generated constructor stub
+	}
 	private static int partidasJugadas=0;
 	private static int partidasMaximas=10;/*número máximo de partidas que el usuario puede jugar*/
 	private static Combinacion[]historial=new Combinacion[partidasMaximas];/*combinacion tiene el tamaño de partidasMaximas*/
@@ -25,13 +28,17 @@ public  class Primitiva {
 			System.out.println("3.Salir");
 			contador++;
 			eleccion=sc.nextInt();
+			sc.nextLine();
 			switch(eleccion) {
 			case 1:/*en el caso de elegir 1, se crea el objeto combinacion que se añade al historial*/
 				Combinacion combinacion=new Combinacion();
+				combinacion.compararNumeros();
+				System.out.println(combinacion.mostrarCombinacion()); 
 				anadirHistorial(combinacion);
 				break;
 			case 2:/* en el caso de elegir el nº 2, se le muestra al usuario el historial llamando al método mostrarHistorial()*/
 				mostrarHistorial();
+				contador--;
 				break;
 			
 			case 3: 
