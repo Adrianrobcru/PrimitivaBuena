@@ -19,36 +19,56 @@ public  class Primitiva {
 	 * método para iniciar el programa
 	 */
 	public static  void iniciar() {
+		
+		
 		Scanner sc=new Scanner(System.in);
 		int eleccion;
-		do {/*le damos a elegir al usuario que quiere hacer mientras que la eleccion siempre sea menor o igual a 3*/
-			System.out.println("¿Qué quiere hacer usted?");
-			System.out.println("1.Jugar");
-			System.out.println("2.Ver historial ");
-			System.out.println("3.Salir");
-			contador++;
-			eleccion=sc.nextInt();
-			sc.nextLine();
-			switch(eleccion) {
+		/*le damos a elegir al usuario que quiere hacer mientras que la eleccion siempre sea menor o igual a 3*/
+		
+		
+		
+		System.out.println("¿Qué quiere hacer usted?");
+		System.out.println("1.Jugar");
+		System.out.println("2.Ver historial ");
+		System.out.println("3.Salir");
+		
+		contador++;
+		eleccion=sc.nextInt();
+		sc.nextLine();
+		
+		
+		switch(eleccion) {
+		
 			case 1:/*en el caso de elegir 1, se crea el objeto combinacion que se añade al historial*/
-				Combinacion combinacion=new Combinacion();
-				combinacion.compararNumeros();
-				System.out.println(combinacion.mostrarCombinacion()); 
-				anadirHistorial(combinacion);
+				
+				Combinacion combinacionUsuario = new Combinacion();
+				combinacionUsuario.leerCombinacionUsuario();
+				
+				Combinacion combiPremiada = new Combinacion();
+				combiPremiada.generarCombinacionAleatoria();
+				
+				
+				int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
+				
+				
+				//System.out.println(combinacionUsuario.mostrarCombinacion());
+				//LO QUE SE IMPRIME YA LO PENSÁIS VOSOTROS
+				
+				anadirHistorial(combinacionUsuario); //EN EL HISTORIAL YO GUARDARÍA TANTO LA COMBINACIÓN GANADORA COMO EL PREMIO O NUMERO DE ACIERTOS
 				break;
+				
+				
 			case 2:/* en el caso de elegir el nº 2, se le muestra al usuario el historial llamando al método mostrarHistorial()*/
 				mostrarHistorial();
 				contador--;
 				break;
-			
-			case 3: 
-				 contador=contador+10;
-				 break;
-			}
-			
-			
-		}while(contador<=10);
 	
+			case 3: 
+				contador=contador+10;
+				break;
+		}
+
+
 	}
 	/**
 	 * método que añade una combinacion al historial
@@ -63,7 +83,7 @@ public  class Primitiva {
 				reiniciarHistorial();/*en el caso de que las partidas jugadas supere al número máximo de partidas,se reinicia el historial,llamando al método reiniciarHistorial()*/
 			}
 		}while(partidasJugadas>partidasMaximas);/*verifica si el número de partidas jugadas supera al de partidas maximas.Se repite el bucle si no se cumple esta condicion*/
-		
+
 	}
 	/**
 	 * método para mostrar el historial
@@ -82,5 +102,5 @@ public  class Primitiva {
 		System.out.println("El historial está lleno y se está reiniciando.Espere unos minutos,porfavor");
 		partidasJugadas = 0;//el nº de las partidas jugadas vuelve a ser cero
 	}
-	
+
 }
