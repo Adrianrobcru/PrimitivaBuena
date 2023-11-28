@@ -29,38 +29,7 @@ public class Combinacion {
 	}
 
 
-	/**public int dineroGanado() { //TODO Los premios los maneja el juego. Una combinación solo compara número de aciertos. Esto no iria aquí.
-		int dineroGanado = 0;
-		if (compararNumeros()==1) {
-			dineroGanado=1000 + 1;
-		}
 
-		if (compararNumeros()==2) {
-			dineroGanado=10000 +1;
-		}
-
-		if (compararNumeros()==3) {
-			dineroGanado=1000000 + 1 ;
-		}
-		if (compararNumeros()==4) {
-			dineroGanado= 1 ;
-		}
-		if (compararNumeros()==5) {
-			dineroGanado=1000 ;
-		}
-
-		if (compararNumeros()==6) {
-			dineroGanado=10000 ;
-		}
-
-		if (compararNumeros()==7) {
-			dineroGanado=1000000 ;
-		}
-		if (compararNumeros()==8) {
-			dineroGanado= 0 ;
-		}
-		return dineroGanado;
-	}**/
 
 	public int compararCombinacionesArray(Combinacion combinacionUsuario) { 
 
@@ -127,12 +96,13 @@ public class Combinacion {
 
 
 	public void generarCombinacionAleatoria() {
+		
 		Random randomReintegro=new Random();
-		this.numReintegro= randomReintegro.nextInt(9);/*Genera un numero aleatorio de cero hasta el numero puesto en el parentesis*/
-		for(int i=0;i<this.numPrimitiva.length;i++) {/*Este for nos permite asignar a cada espacio de memoria un numero aleatorio*/
+		this.numReintegro= randomReintegro.nextInt(9);//Genera un numero aleatorio de cero hasta el numero puesto en el parentesis
+		for(int i=0;i<this.numPrimitiva.length;i++) {//Este for nos permite asignar a cada espacio de memoria un numero aleatorio
 			Random randomPrimitiva= new Random();
 			boolean validarRandom=false;
-			int guardarRandom= randomPrimitiva.nextInt(19)+1;/*lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo*/
+			int guardarRandom= randomPrimitiva.nextInt(19)+1;//lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo
 			for(int j=0;j<numPrimitiva.length;j++) {
 				if(numPrimitiva[j]==guardarRandom) {
 					validarRandom=true;
@@ -160,9 +130,9 @@ public class Combinacion {
 		String stringReintegro=String.valueOf(numReintegro);
 		String stringPrimitiva = "";
 		for(int i=0;i<numPrimitiva.length;i++) {
-			stringPrimitiva=stringPrimitiva+String.valueOf(numPrimitiva[i]);
+			stringPrimitiva=stringPrimitiva+" "+String.valueOf(numPrimitiva[i]);
 		}
-		return "La primitiva es "+stringPrimitiva+" y el reintegro es: "+stringReintegro;
+		return "la primitiva es "+stringPrimitiva+" y el reintegro es: "+stringReintegro;
 	}
 
 }

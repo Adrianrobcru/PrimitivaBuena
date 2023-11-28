@@ -19,64 +19,99 @@ public  class Primitiva {
 	 * método para iniciar el programa
 	 */
 	public static  void iniciar() {
-		
-		
-		Scanner sc=new Scanner(System.in);
-		int eleccion;
-		/*le damos a elegir al usuario que quiere hacer mientras que la eleccion siempre sea menor o igual a 3*/
-		
-		
-		
-		System.out.println("¿Qué quiere hacer usted?");
-		System.out.println("1.Jugar");
-		System.out.println("2.Ver historial ");
-		System.out.println("3.Salir");
-		
-		contador++;
-		eleccion=sc.nextInt();
-		sc.nextLine();
-		
-		
-		switch(eleccion) {
-		
+
+
+		boolean jugando = true;
+
+		while(jugando) {
+
+			Scanner sc=new Scanner(System.in);
+			int eleccion;
+			/*le damos a elegir al usuario que quiere hacer mientras que la eleccion siempre sea menor o igual a 3*/
+
+
+
+			System.out.println("¿Qué quiere hacer usted?");
+			System.out.println("1.Jugar");
+			System.out.println("2.Ver historial ");
+			System.out.println("3.Salir");
+
+			contador++;
+			eleccion=sc.nextInt();
+			sc.nextLine();
+
+
+			switch(eleccion) {
+
 			case 1:/*en el caso de elegir 1, se crea el objeto combinacion que se añade al historial*/
-				
+
 				Combinacion combinacionUsuario = new Combinacion();
 				combinacionUsuario.leerCombinacionUsuario();
-				
-				System.out.println(combinacionUsuario.mostrarCombinacion());
-				
 				Combinacion combiPremiada = new Combinacion();
 				combiPremiada.generarCombinacionAleatoria();
-				System.out.println(combiPremiada.mostrarCombinacion());
-				
+				System.out.println("En la primitiva premiada: "+combiPremiada.mostrarCombinacion());
+				System.out.println("En la primitiva introducida: "+ combinacionUsuario.mostrarCombinacion());
+				System.out.println("El numero de aciertos es: "+combiPremiada.compararCombinacionesArray(combinacionUsuario));
+				Primitiva primitivaDineroGanado= new Primitiva();
+				System.out.println("El dinero ganado es: "+primitivaDineroGanado.dineroGanado(combiPremiada.compararCombinacionesArray(combinacionUsuario), combiPremiada.compararCombinacionesReintegro(combinacionUsuario))+"€");
+
+
 				//int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
-				
-				
+
+
 				//System.out.println(combinacionUsuario.mostrarCombinacion());
 				//LO QUE SE IMPRIME YA LO PENSÁIS VOSOTROS
-				
+
 				//anadirHistorial(combinacionUsuario); //EN EL HISTORIAL YO GUARDARÍA TANTO LA COMBINACIÓN GANADORA COMO EL PREMIO O NUMERO DE ACIERTOS
 				break;
-				
-				
+
+
 			case 2:/* en el caso de elegir el nº 2, se le muestra al usuario el historial llamando al método mostrarHistorial()*/
 				mostrarHistorial();
-				contador--;
+				
 				break;
-	
+
 			case 3: 
-				contador=contador+10;
+				
+				System.out.println("Hasta pronto!");
+				jugando = false;
 				break;
+			}
 		}
 
+	}
 
+
+	private int dineroGanado(int aciertos,boolean reintegroAcertado) {
+		int dineroGanado=0;
+		if(reintegroAcertado==true) {
+			if(aciertos==4) {
+				dineroGanado=dineroGanado+1000+1;
+			}
+			if(aciertos==5) {
+				dineroGanado=dineroGanado+10000+1;
+			}
+			if(aciertos==6) {
+				dineroGanado=dineroGanado+1000000+1;
+			}
+		}else {
+			if(aciertos==4) {
+				dineroGanado=dineroGanado+1000;
+			}
+			if(aciertos==5) {
+				dineroGanado=dineroGanado+10000;
+			}
+			if(aciertos==6) {
+				dineroGanado=dineroGanado+1000000;
+			}
+		}
+		return dineroGanado;
 	}
 	/**
 	 * método que añade una combinacion al historial
 	 * @param recibe como parametro combinacion
 	 */
-	private static void anadirHistorial(Combinacion combinacionHistorial) {
+	private static void anadirHistorial(Combinacion combinacionPremiada,Combinacion combinacionIntroducida,int aciertos,int dineroganado) {
 		do {
 			if(partidasJugadas<partidasMaximas) {/*si el numero de partidas jugadas es menor que el de partidas máximas,asigna la combinacion actual a partidasJugadas del array historial*/
 				historial[partidasJugadas]=combinacionHistorial;
