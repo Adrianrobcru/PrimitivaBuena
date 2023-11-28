@@ -62,7 +62,7 @@ public class Combinacion {
 		return dineroGanado;
 	}**/
 
-	public int compararCombinacionesArray(Combinacion combinacionUsuario) { //TODO Si es para comparar, es sólo para comparar. No para leer. Que devcuelva el numero de aciertos
+	public int compararCombinacionesArray(Combinacion combinacionUsuario) { 
 
 		int[] combiUsuarioArray = combinacionUsuario.getArray();
 		int aciertos=0;
@@ -112,7 +112,13 @@ public class Combinacion {
 			}
 		}
 		System.out.println("Introduce el reintegro");
-		numReintegro=scanner.nextInt();
+		int b=scanner.nextInt();
+		while(b<0 || b>9){
+			System.out.println("El reintegro introducido no es válido.Introduzca otro, por favor");
+			b=scanner.nextInt();
+			
+		}
+		numReintegro=b;
 		
 		Arrays.sort(numPrimitiva);
 
@@ -125,7 +131,17 @@ public class Combinacion {
 		this.numReintegro= randomReintegro.nextInt(9);/*Genera un numero aleatorio de cero hasta el numero puesto en el parentesis*/
 		for(int i=0;i<this.numPrimitiva.length;i++) {/*Este for nos permite asignar a cada espacio de memoria un numero aleatorio*/
 			Random randomPrimitiva= new Random();
-			this.numPrimitiva[i]=randomPrimitiva.nextInt(19)+1;/*lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo*/
+			boolean validarRandom=false;
+			int guardarRandom= randomPrimitiva.nextInt(19)+1;/*lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo*/
+			for(int j=0;j<numPrimitiva.length;j++) {
+				if(numPrimitiva[j]==guardarRandom) {
+					validarRandom=true;
+				}
+			}
+			if(validarRandom==true) {
+				i--;
+			}else {
+			this.numPrimitiva[i]=guardarRandom;}
 		}
 		
 		Arrays.sort(numPrimitiva);
@@ -141,7 +157,12 @@ public class Combinacion {
 
 	public String mostrarCombinacion() {
 		//TODO Rehacer
-		return "";
+		String stringReintegro=String.valueOf(numReintegro);
+		String stringPrimitiva = "";
+		for(int i=0;i<numPrimitiva.length;i++) {
+			stringPrimitiva=stringPrimitiva+String.valueOf(numPrimitiva[i]);
+		}
+		return "La primitiva es "+stringPrimitiva+" y el reintegro es: "+stringReintegro;
 	}
 
 }

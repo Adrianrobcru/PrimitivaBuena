@@ -44,11 +44,11 @@ public  class Primitiva {
 				Combinacion combinacionUsuario = new Combinacion();
 				combinacionUsuario.leerCombinacionUsuario();
 				
-				System.out.println("asdasd");
+				System.out.println(combinacionUsuario.mostrarCombinacion());
 				
 				Combinacion combiPremiada = new Combinacion();
 				combiPremiada.generarCombinacionAleatoria();
-				
+				System.out.println(combiPremiada.mostrarCombinacion());
 				
 				//int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
 				
@@ -76,10 +76,10 @@ public  class Primitiva {
 	 * método que añade una combinacion al historial
 	 * @param recibe como parametro combinacion
 	 */
-	private static void anadirHistorial(Combinacion combinacion) {
+	private static void anadirHistorial(Combinacion combinacionHistorial) {
 		do {
 			if(partidasJugadas<partidasMaximas) {/*si el numero de partidas jugadas es menor que el de partidas máximas,asigna la combinacion actual a partidasJugadas del array historial*/
-				historial[partidasJugadas]=combinacion;
+				historial[partidasJugadas]=combinacionHistorial;
 				partidasJugadas++;/*aumenta el número de partidas jugadas*/
 			}else {
 				reiniciarHistorial();/*en el caso de que las partidas jugadas supere al número máximo de partidas,se reinicia el historial,llamando al método reiniciarHistorial()*/
