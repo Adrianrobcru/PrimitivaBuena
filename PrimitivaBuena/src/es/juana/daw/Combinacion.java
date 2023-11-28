@@ -66,7 +66,7 @@ public class Combinacion {
 	}
 
 	public void leerCombinacionUsuario() {
-		//TENÉIS QUE COMPROBAR QUE NO ESTÉN REPETIDOS
+		//TENÉIS QUE COMPROBAR QUE NO ESTÉN REPETIDOS.
 		//TODO Aquí es donde se lee los números del usuario y se asignan al objeto.
 		Scanner scanner= new Scanner(System.in);
 		for(int i=0;i<numPrimitiva.length;i++) {
