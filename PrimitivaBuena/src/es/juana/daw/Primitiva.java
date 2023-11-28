@@ -44,17 +44,19 @@ public  class Primitiva {
 				Combinacion combinacionUsuario = new Combinacion();
 				combinacionUsuario.leerCombinacionUsuario();
 				
+				System.out.println("asdasd");
+				
 				Combinacion combiPremiada = new Combinacion();
 				combiPremiada.generarCombinacionAleatoria();
 				
 				
-				int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
+				//int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
 				
 				
 				//System.out.println(combinacionUsuario.mostrarCombinacion());
 				//LO QUE SE IMPRIME YA LO PENSÁIS VOSOTROS
 				
-				anadirHistorial(combinacionUsuario); //EN EL HISTORIAL YO GUARDARÍA TANTO LA COMBINACIÓN GANADORA COMO EL PREMIO O NUMERO DE ACIERTOS
+				//anadirHistorial(combinacionUsuario); //EN EL HISTORIAL YO GUARDARÍA TANTO LA COMBINACIÓN GANADORA COMO EL PREMIO O NUMERO DE ACIERTOS
 				break;
 				
 				

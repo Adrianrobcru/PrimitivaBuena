@@ -1,5 +1,6 @@
 package es.juana.daw;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,6 +22,10 @@ public class Combinacion {
 	public Combinacion(int reintegro, int[] primitiva) {/*El constructor que genera el numero que introduce el usuario*/
 		numReintegro = reintegro;
 		numPrimitiva = primitiva;
+	}
+
+	public int[] getArray(){
+		return numPrimitiva;
 	}
 
 
@@ -57,27 +62,61 @@ public class Combinacion {
 		return dineroGanado;
 	}**/
 
-	public int compararCombinaciones(Combinacion combinacionUsuario) { //TODO Si es para comparar, es sólo para comparar. No para leer. Que devcuelva el numero de aciertos
+	public int compararCombinacionesArray(Combinacion combinacionUsuario) { //TODO Si es para comparar, es sólo para comparar. No para leer. Que devcuelva el numero de aciertos
+
+		int[] combiUsuarioArray = combinacionUsuario.getArray();
+		int aciertos=0;
 		for(int i=0;i<6;i++) {
 			for(int j=0;j<6;j++) {
-				if()
+				if(this.numPrimitiva[i]==combiUsuarioArray[j]) {
+					aciertos++;
+				}
 			}
 		}
+		return aciertos;
 	}
+	public boolean compararCombinacionesReintegro(Combinacion combinacionUsuario) {
+		int combinacionUsuarioReintegro=combinacionUsuario.getNumReintegro();
+		if (this.numReintegro==combinacionUsuarioReintegro) {
+			return true;
+		}else {
+			return false;
+		}
 
+	}
 	public void leerCombinacionUsuario() {
-		//TENÉIS QUE COMPROBAR QUE NO ESTÉN REPETIDOS.
-		//TODO Aquí es donde se lee los números del usuario y se asignan al objeto.
+	
 		Scanner scanner= new Scanner(System.in);
 		for(int i=0;i<numPrimitiva.length;i++) {
 			System.out.println("Dime el numero "+(i+1)+"º de la primitiva");
+			boolean comprobarRepetidos=false;
 			int a=scanner.nextInt();
-			numPrimitiva[i]=a;
+
+			while(a<1 || a>20) {
+				System.out.println("Ese numero no es valido,porfavor introduzca otro");
+				a=scanner.nextInt();
+			}
+
+			for(int j=0;j<numPrimitiva.length;j++) {
+				if(a==numPrimitiva[j]) {
+					comprobarRepetidos=true;
+				}
+			}
+
+			if(comprobarRepetidos==false) {
+				numPrimitiva[i]=a;
+			}else {
+				System.out.println("El numero repetido ya esta introducido");
+				i=i-1;
+
+			}
 		}
 		System.out.println("Introduce el reintegro");
 		numReintegro=scanner.nextInt();
 		
-		
+		Arrays.sort(numPrimitiva);
+
+
 	}
 
 
@@ -88,12 +127,13 @@ public class Combinacion {
 			Random randomPrimitiva= new Random();
 			this.numPrimitiva[i]=randomPrimitiva.nextInt(19)+1;/*lo que va entre parentesis seria el numero maximo y el numero despues del mas seria el minimo*/
 		}
+		
+		Arrays.sort(numPrimitiva);
+		
 	}
 
 
-	public int getNumPrimitiva(int a) {
-		return numPrimitiva[a];
-	}
+
 
 	public int getNumReintegro() {
 		return numReintegro;
