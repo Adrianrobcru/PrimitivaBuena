@@ -72,8 +72,12 @@ public  class Primitiva {
 				break;
 
 			case 3: 
-				
-				System.out.println("Hasta pronto!");
+				Random numeroAleatorio= new Random();
+				int a;
+				a=numeroAleatorio.nextInt(2);
+				if (a==0) {System.out.println("Me las piro vampiro");}
+				if (a==1) {System.out.println("Hasta luego Lucas");}
+				if (a==2) {System.out.println("Chao pescao");}
 				jugando = false;
 				break;
 			}
