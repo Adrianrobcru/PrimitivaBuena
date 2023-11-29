@@ -83,43 +83,61 @@ public  class Primitiva {
 
 
 	private int dineroGanado(int aciertos,boolean reintegroAcertado) {
+		
+	/*metodo que dependiendo de los aciertos y que si se acerta la primitiva se le asigna a 
+	la variable dineroGanado y al final se devuelve dineroGanado*/
+		
 		int dineroGanado=0;
 		if(reintegroAcertado==true) {
 			if(aciertos==4) {
 				dineroGanado=dineroGanado+1000+1;
 			}
+			
 			if(aciertos==5) {
 				dineroGanado=dineroGanado+10000+1;
 			}
+			
 			if(aciertos==6) {
 				dineroGanado=dineroGanado+1000000+1;
 			}
-		}else {
+			
+		}
+		
+		else {
+			
 			if(aciertos==4) {
 				dineroGanado=dineroGanado+1000;
 			}
+			
 			if(aciertos==5) {
 				dineroGanado=dineroGanado+10000;
 			}
+			
 			if(aciertos==6) {
 				dineroGanado=dineroGanado+1000000;
 			}
 		}
 		return dineroGanado;
 	}
+	
+	
 	/**
 	 * método que añade una combinacion al historial
 	 * @param recibe como parametro combinacion
 	 */
+	
 	private static void anadirHistorial(Combinacion combinacionPremiada,Combinacion combinacionIntroducida,int aciertos,int dineroganado) {
 		do {
+			
 			if(partidasJugadas<partidasMaximas) {/*si el numero de partidas jugadas es menor que el de partidas máximas,asigna la combinacion actual a partidasJugadas del array historial*/
 				historial[partidasJugadas]=combinacionHistorial;
 				partidasJugadas++;/*aumenta el número de partidas jugadas*/
-			}else {
+			}
+			else {
 				reiniciarHistorial();/*en el caso de que las partidas jugadas supere al número máximo de partidas,se reinicia el historial,llamando al método reiniciarHistorial()*/
 			}
-		}while(partidasJugadas>partidasMaximas);/*verifica si el número de partidas jugadas supera al de partidas maximas.Se repite el bucle si no se cumple esta condicion*/
+		}
+		while(partidasJugadas>partidasMaximas);/*verifica si el número de partidas jugadas supera al de partidas maximas.Se repite el bucle si no se cumple esta condicion*/
 
 	}
 	/**

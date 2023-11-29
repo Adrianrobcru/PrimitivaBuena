@@ -23,7 +23,11 @@ public class Combinacion {
 		numReintegro = reintegro;
 		numPrimitiva = primitiva;
 	}
-
+	/**
+	 * Este metodo devuelve 
+	 * @numPrimitiva
+	 *de un objeto que llama de tipo combinacion
+	 */
 	public int[] getArray(){
 		return numPrimitiva;
 	}
@@ -31,7 +35,7 @@ public class Combinacion {
 
 
 
-	public int compararCombinacionesArray(Combinacion combinacionUsuario) { 
+	public int compararCombinacionesArray(Combinacion combinacionUsuario) { /*Este metodo compara el objeto que llama con otro introducido y devuelve el numeno de aciertos*/
 
 		int[] combiUsuarioArray = combinacionUsuario.getArray();
 		int aciertos=0;
@@ -44,7 +48,7 @@ public class Combinacion {
 		}
 		return aciertos;
 	}
-	public boolean compararCombinacionesReintegro(Combinacion combinacionUsuario) {
+	public boolean compararCombinacionesReintegro(Combinacion combinacionUsuario) {/*Este metodo compara el objeto que llama con otro introducido y devuelve un false o un true*/
 		int combinacionUsuarioReintegro=combinacionUsuario.getNumReintegro();
 		if (this.numReintegro==combinacionUsuarioReintegro) {
 			return true;
@@ -53,7 +57,7 @@ public class Combinacion {
 		}
 
 	}
-	public void leerCombinacionUsuario() {
+	public void leerCombinacionUsuario() {/*Este objeto lee un array y un int que mete el usuario y lo introduce a a un objeto de tipo combinacion*/
 	
 		Scanner scanner= new Scanner(System.in);
 		for(int i=0;i<numPrimitiva.length;i++) {
@@ -89,7 +93,7 @@ public class Combinacion {
 		}
 		numReintegro=b;
 		
-		Arrays.sort(numPrimitiva);
+		Arrays.sort(numPrimitiva);/*ordena de menor a mayor el array*/
 
 
 	}
@@ -119,13 +123,16 @@ public class Combinacion {
 	}
 
 
-
-
+/**
+ * Este metodo devuelve:
+ * @numReintegro
+ * de un objeto de tipo combinacion
+ */
 	public int getNumReintegro() {
 		return numReintegro;
 	}
 
-	public String mostrarCombinacion() {
+	public String mostrarCombinacion() {/*metodo que imprime toda la informacion de*/
 		//TODO Rehacer
 		String stringReintegro=String.valueOf(numReintegro);
 		String stringPrimitiva = "";
