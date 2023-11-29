@@ -15,6 +15,8 @@ public  class Primitiva {
 	private static int partidasMaximas=10;/*número máximo de partidas que el usuario puede jugar*/
 	private static Combinacion[]historial=new Combinacion[partidasMaximas];/*combinacion tiene el tamaño de partidasMaximas*/
 	private static int contador=0;
+	static Historial[] historialGuardar = new Historial[10];
+	
 	/**
 	 * método para iniciar el programa
 	 */
@@ -54,7 +56,7 @@ public  class Primitiva {
 				System.out.println("El numero de aciertos es: "+combiPremiada.compararCombinacionesArray(combinacionUsuario));
 				Primitiva primitivaDineroGanado= new Primitiva();
 				System.out.println("El dinero ganado es: "+primitivaDineroGanado.dineroGanado(combiPremiada.compararCombinacionesArray(combinacionUsuario), combiPremiada.compararCombinacionesReintegro(combinacionUsuario))+"€");
-
+				Primitiva.anadirHistorial(combiPremiada, combinacionUsuario, combiPremiada.compararCombinacionesArray(combinacionUsuario), primitivaDineroGanado.dineroGanado(combiPremiada.compararCombinacionesArray(combinacionUsuario),combiPremiada.compararCombinacionesReintegro(combinacionUsuario)));
 
 				//int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
 
@@ -134,7 +136,8 @@ public  class Primitiva {
 		do {
 			
 			if(partidasJugadas<partidasMaximas) {/*si el numero de partidas jugadas es menor que el de partidas máximas,asigna la combinacion actual a partidasJugadas del array historial*/
-				historial[partidasJugadas]=combinacionHistorial;
+				Historial paraGuardarPartida= new Historial(combinacionPremiada, combinacionIntroducida, aciertos, dineroganado);
+				historialGuardar[partidasJugadas]=paraGuardarPartida;
 				partidasJugadas++;/*aumenta el número de partidas jugadas*/
 			}
 			else {
@@ -150,7 +153,7 @@ public  class Primitiva {
 	private static void mostrarHistorial() {
 		System.out.println("Historial de las combinaciones");/*avisa de que se imprime el historial de la combinaciones*/
 		for(int i = 0;i<partidasJugadas;i++) {/*el bucle se inicia en 0 e itera sobre el historial hasta el número de partidas jugadas*/
-			historial[i].mostrarCombinacion();/*muestra la combinacion dentro del historial de la posicion i e imprime los datos de la combinación*/
+			System.out.println(historialGuardar[i].imprimirHistorial());;/*muestra la combinacion dentro del historial de la posicion i e imprime los datos de la combinación*/
 		}
 	}
 	/**

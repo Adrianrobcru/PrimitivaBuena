@@ -39,7 +39,7 @@ public class Combinacion {
 
 		int[] combiUsuarioArray = combinacionUsuario.getArray();
 		int aciertos=0;
-		for(int i=0;i<6;i++) {
+		for(int i=0;i<numPrimitiva.length;i++) {
 			for(int j=0;j<6;j++) {
 				if(this.numPrimitiva[i]==combiUsuarioArray[j]) {
 					aciertos++;
