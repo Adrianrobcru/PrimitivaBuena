@@ -14,7 +14,6 @@ public  class Primitiva {
 	private static int partidasJugadas=0;
 	private static int partidasMaximas=10;/*número máximo de partidas que el usuario puede jugar*/
 	private static Combinacion[]historial=new Combinacion[partidasMaximas];/*combinacion tiene el tamaño de partidasMaximas*/
-	private static int contador=0;
 	static Historial[] historialGuardar = new Historial[10];
 	static int dinero=100;
 	/**
@@ -40,7 +39,7 @@ public  class Primitiva {
 			System.out.println("2.Ver historial ");
 			System.out.println("3.Salir");
 
-			contador++;
+			
 			eleccion=sc.nextInt();
 			sc.nextLine();
 
@@ -83,11 +82,16 @@ public  class Primitiva {
 
 	}
 
-
+	/**
+	 * metodo que dependiendo de los aciertos y que si se acerta la primitiva se le asigna a 
+	la variable dineroGanado
+	 * @param aciertos
+	 * @param reintegroAcertado
+	 * @return dineroGanado
+	 */
 	private int dineroGanado(int aciertos,boolean reintegroAcertado) {
 		
-	/*metodo que dependiendo de los aciertos y que si se acerta la primitiva se le asigna a 
-	la variable dineroGanado y al final se devuelve dineroGanado*/
+	
 		
 		int dineroGanado=0;
 		if(reintegroAcertado==true) {
@@ -123,7 +127,10 @@ public  class Primitiva {
 		}
 		return dineroGanado;
 	}
-	
+	/**
+	 * método que gestiona el saldo que tiene el usuario
+	 * @param dineroGanado
+	 */
 	public void gestionDinero(int dineroGanado) {
 		int dineroGanadoGestion=dineroGanado;
 		this.dinero-=1;

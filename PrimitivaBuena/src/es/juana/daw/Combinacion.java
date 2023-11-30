@@ -32,10 +32,14 @@ public class Combinacion {
 		return numPrimitiva;
 	}
 
+/**
+ * El método compara el objeto 
+ * @param combinacionUsuario
+ * @return el número de aciertos
+ */
 
 
-
-	public int compararCombinacionesArray(Combinacion combinacionUsuario) { /*Este metodo compara el objeto que llama con otro introducido y devuelve el numeno de aciertos*/
+	public int compararCombinacionesArray(Combinacion combinacionUsuario) { 
 
 		int[] combiUsuarioArray = combinacionUsuario.getArray();
 		int aciertos=0;
@@ -48,7 +52,12 @@ public class Combinacion {
 		}
 		return aciertos;
 	}
-	public boolean compararCombinacionesReintegro(Combinacion combinacionUsuario) {/*Este metodo compara el objeto que llama con otro introducido y devuelve un false o un true*/
+	/**
+	 * método que compara las combinaciones del reintegro
+	 * @param combinacionUsuario
+	 * @return false o true
+	 */
+	public boolean compararCombinacionesReintegro(Combinacion combinacionUsuario) {
 		int combinacionUsuarioReintegro=combinacionUsuario.numReintegro;
 		if (this.numReintegro==combinacionUsuarioReintegro) {
 			return true;
@@ -57,7 +66,10 @@ public class Combinacion {
 		}
 
 	}
-	public void leerCombinacionUsuario() {/*Este objeto lee un array y un int que mete el usuario y lo introduce a a un objeto de tipo combinacion*/
+	/**
+	 * Este objeto lee un array y un int que mete el usuario y lo introduce a a un objeto de tipo combinacion
+	 */
+	public void leerCombinacionUsuario() {
 	
 		Scanner scanner= new Scanner(System.in);
 		for(int i=0;i<numPrimitiva.length;i++) {
@@ -97,7 +109,9 @@ public class Combinacion {
 
 
 	}
-
+/**
+ * Objeto que genera una combinacion de manera aleatoria
+ */
 
 	public void generarCombinacionAleatoria() {
 		
@@ -131,9 +145,12 @@ public class Combinacion {
 	public int getNumReintegro() {
 		return numReintegro;
 	}
-
-	public String mostrarCombinacion() {/*metodo que imprime toda la informacion de*/
-		//TODO Rehacer
+/**
+ * método que muestra la combinación 
+ * @return un string de Primitiva y otro de Reintegro
+ */
+	public String mostrarCombinacion() {
+		
 		String stringReintegro=String.valueOf(numReintegro);
 		String stringPrimitiva = "";
 		for(int i=0;i<numPrimitiva.length;i++) {
