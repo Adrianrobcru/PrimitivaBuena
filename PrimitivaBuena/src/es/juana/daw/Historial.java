@@ -27,7 +27,7 @@ public class Historial {
 		for(int i=0;i<combiancionGanadora.numPrimitiva.length;i++) {
 			stringPrimitiva=stringPrimitiva+" "+String.valueOf(combiancionGanadora.numPrimitiva[i]);//uso del metodo valueOf que devuelve el valor del String en forma de cadena
 		}
-		//bucle que representa la combinacion introducia por el usuario
+		//bucle que representa la combinacion introducia por el usuario.
 		for(int i=0;i<combiancionGanadora.numPrimitiva.length;i++) {
 			stringPrimitiva2=stringPrimitiva2+" "+String.valueOf(combinacionUsuario.numPrimitiva[i]);
 		}
