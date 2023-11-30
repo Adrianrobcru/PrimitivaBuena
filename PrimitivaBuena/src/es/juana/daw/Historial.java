@@ -6,7 +6,6 @@ public class Historial {
 	int dineroGanado;
 	Combinacion combiancionGanadora;
 	Combinacion combinacionUsuario;
-	Primitiva dineroGanado2 = new Primitiva();
 	//constructor
 	public Historial(Combinacion combinacionPremiada,Combinacion combinacionIntroducida,int aciertos,int dineroGanador) {
 		this.aciertos=aciertos;
