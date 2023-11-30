@@ -16,7 +16,7 @@ public  class Primitiva {
 	private static Combinacion[]historial=new Combinacion[partidasMaximas];/*combinacion tiene el tamaño de partidasMaximas*/
 	private static int contador=0;
 	static Historial[] historialGuardar = new Historial[10];
-	
+	static int dinero=100;
 	/**
 	 * método para iniciar el programa
 	 */
@@ -33,7 +33,9 @@ public  class Primitiva {
 
 
 
-			System.out.println("¿Qué quiere hacer usted?");
+			System.out.println("---La Primitiva---");
+			System.out.println("Saldo: "+dinero);
+			System.out.println("¿Que quieres hacer bandido?");
 			System.out.println("1.Jugar");
 			System.out.println("2.Ver historial ");
 			System.out.println("3.Salir");
@@ -57,14 +59,8 @@ public  class Primitiva {
 				Primitiva primitivaDineroGanado= new Primitiva();
 				System.out.println("El dinero ganado es: "+primitivaDineroGanado.dineroGanado(combiPremiada.compararCombinacionesArray(combinacionUsuario), combiPremiada.compararCombinacionesReintegro(combinacionUsuario))+"€");
 				Primitiva.anadirHistorial(combiPremiada, combinacionUsuario, combiPremiada.compararCombinacionesArray(combinacionUsuario), primitivaDineroGanado.dineroGanado(combiPremiada.compararCombinacionesArray(combinacionUsuario),combiPremiada.compararCombinacionesReintegro(combinacionUsuario)));
-
-				//int numAciertos = combinacionUsuario.compararNumeros(combiPremiada); //CON ESTO SACO EL NÚMERO DE ACIERTOS
-
-
-				//System.out.println(combinacionUsuario.mostrarCombinacion());
-				//LO QUE SE IMPRIME YA LO PENSÁIS VOSOTROS
-
-				//anadirHistorial(combinacionUsuario); //EN EL HISTORIAL YO GUARDARÍA TANTO LA COMBINACIÓN GANADORA COMO EL PREMIO O NUMERO DE ACIERTOS
+				Primitiva primitivaGestionar= new Primitiva();
+				primitivaGestionar.gestionDinero(primitivaDineroGanado.dineroGanado(combiPremiada.compararCombinacionesArray(combinacionUsuario), combiPremiada.compararCombinacionesReintegro(combinacionUsuario)));
 				break;
 
 
@@ -106,7 +102,9 @@ public  class Primitiva {
 			if(aciertos==6) {
 				dineroGanado=dineroGanado+1000000+1;
 			}
-			
+			if(aciertos<4) {
+				dineroGanado=dineroGanado+1;
+			}
 		}
 		
 		else {
@@ -126,7 +124,11 @@ public  class Primitiva {
 		return dineroGanado;
 	}
 	
-	
+	public void gestionDinero(int dineroGanado) {
+		int dineroGanadoGestion=dineroGanado;
+		this.dinero-=1;
+		this.dinero+=dineroGanadoGestion;
+	}
 	/**
 	 * método que añade una combinacion al historial
 	 * @param recibe como parametro combinacion
@@ -151,8 +153,9 @@ public  class Primitiva {
 	 * método para mostrar el historial
 	 */
 	private static void mostrarHistorial() {
-		System.out.println("Historial de las combinaciones");/*avisa de que se imprime el historial de la combinaciones*/
+		
 		for(int i = 0;i<partidasJugadas;i++) {/*el bucle se inicia en 0 e itera sobre el historial hasta el número de partidas jugadas*/
+			System.out.println("Historial de las combinaciones de la partida: "+ (i+1));/*avisa de que se imprime el historial de la combinaciones*/
 			System.out.println(historialGuardar[i].imprimirHistorial());;/*muestra la combinacion dentro del historial de la posicion i e imprime los datos de la combinación*/
 		}
 	}

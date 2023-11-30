@@ -49,7 +49,7 @@ public class Combinacion {
 		return aciertos;
 	}
 	public boolean compararCombinacionesReintegro(Combinacion combinacionUsuario) {/*Este metodo compara el objeto que llama con otro introducido y devuelve un false o un true*/
-		int combinacionUsuarioReintegro=combinacionUsuario.getNumReintegro();
+		int combinacionUsuarioReintegro=combinacionUsuario.numReintegro;
 		if (this.numReintegro==combinacionUsuarioReintegro) {
 			return true;
 		}else {
