@@ -147,7 +147,7 @@ public  class Primitiva {
 			if(partidasJugadas<partidasMaximas) {/*si el numero de partidas jugadas es menor que el de partidas máximas,asigna la combinacion actual a partidasJugadas del array historial*/
 				Historial paraGuardarPartida= new Historial(combinacionPremiada, combinacionIntroducida, aciertos, dineroganado);
 				historialGuardar[partidasJugadas]=paraGuardarPartida;
-				partidasJugadas++;/*aumenta el número de partidas jugadas*/
+				partidasJugadas++;
 			}
 			else {
 				reiniciarHistorial();/*en el caso de que las partidas jugadas supere al número máximo de partidas,se reinicia el historial,llamando al método reiniciarHistorial()*/
