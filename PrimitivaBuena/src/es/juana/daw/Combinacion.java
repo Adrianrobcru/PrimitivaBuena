@@ -154,9 +154,13 @@ public class Combinacion {
 		String stringReintegro=String.valueOf(numReintegro);
 		String stringPrimitiva = "";
 		for(int i=0;i<numPrimitiva.length;i++) {
-			stringPrimitiva=stringPrimitiva+" "+String.valueOf(numPrimitiva[i]);
+			stringPrimitiva=stringPrimitiva+" "+String.format("%02d", numPrimitiva[i]);
 		}
-		return "la primitiva es "+stringPrimitiva+" y el reintegro es: "+stringReintegro;
+		return "\n"+"╔══════════════════════════════════════════════════════════════╗" + "\n"
+				  + "║     "+"La primitiva es" +stringPrimitiva+ "                        ║" +"\n"
+				   +"║                                                              ║" + "\n"
+				  + "║      Y el reintegro es: "+stringReintegro+ "                                    ║" +"\n"
+				  + "╚══════════════════════════════════════════════════════════════╝";
 	}
 
 }
