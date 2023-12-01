@@ -75,21 +75,21 @@ public class Combinacion {
 		for(int i=0;i<numPrimitiva.length;i++) {
 			System.out.println("Dime el numero "+(i+1)+"º de la primitiva");
 			boolean comprobarRepetidos=false;
-			int a=scanner.nextInt();
+			int primitivaUsuarioValidacion=scanner.nextInt();
 
-			while(a<1 || a>20) {
+			while(primitivaUsuarioValidacion<1 || primitivaUsuarioValidacion>20) {
 				System.out.println("Ese numero no es valido,porfavor introduzca otro");
-				a=scanner.nextInt();
+				primitivaUsuarioValidacion=scanner.nextInt();
 			}
 
 			for(int j=0;j<numPrimitiva.length;j++) {
-				if(a==numPrimitiva[j]) {
+				if(primitivaUsuarioValidacion==numPrimitiva[j]) {
 					comprobarRepetidos=true;
 				}
 			}
 
 			if(comprobarRepetidos==false) {
-				numPrimitiva[i]=a;
+				numPrimitiva[i]=primitivaUsuarioValidacion;
 			}else {
 				System.out.println("El numero repetido ya esta introducido");
 				i=i-1;
@@ -97,13 +97,13 @@ public class Combinacion {
 			}
 		}
 		System.out.println("Introduce el reintegro");
-		int b=scanner.nextInt();
-		while(b<0 || b>9){
+		int reintegroUsuarioValidacion=scanner.nextInt();
+		while(reintegroUsuarioValidacion<0 || reintegroUsuarioValidacion>9){
 			System.out.println("El reintegro introducido no es válido.Introduzca otro, por favor");
-			b=scanner.nextInt();
+			reintegroUsuarioValidacion=scanner.nextInt();
 			
 		}
-		numReintegro=b;
+		numReintegro=reintegroUsuarioValidacion;
 		
 		Arrays.sort(numPrimitiva);/*ordena de menor a mayor el array*/
 

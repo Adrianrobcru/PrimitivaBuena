@@ -70,11 +70,11 @@ public  class Primitiva {
 
 			case 3: 
 				Random numeroAleatorio= new Random();
-				int a;
-				a=numeroAleatorio.nextInt(2);
-				if (a==0) {System.out.println("Me las piro vampiro");}
-				if (a==1) {System.out.println("Hasta luego Lucas");}
-				if (a==2) {System.out.println("Chao pescao");}
+				int despidoAleatorio;
+				despidoAleatorio=numeroAleatorio.nextInt(2);
+				if (despidoAleatorio==0) {System.out.println("Me las piro vampiro");}
+				if (despidoAleatorio==1) {System.out.println("Hasta luego Lucas");}
+				if (despidoAleatorio==2) {System.out.println("Chao pescao");}
 				jugando = false;
 				break;
 			}
@@ -162,7 +162,7 @@ public  class Primitiva {
 	private static void mostrarHistorial() {
 		
 		for(int i = 0;i<partidasJugadas;i++) {/*el bucle se inicia en 0 e itera sobre el historial hasta el número de partidas jugadas*/
-			System.out.println("Historial de las combinaciones de la partida: "+ (i+1));/*avisa de que se imprime el historial de la combinaciones*/
+			System.out.println("Historial de las combinaciones de la partida: "+ (i+1));
 			System.out.println(historialGuardar[i].imprimirHistorial());;/*muestra la combinacion dentro del historial de la posicion i e imprime los datos de la combinación*/
 		}
 	}
